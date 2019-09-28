@@ -34,10 +34,10 @@ def create_db(filename):
 create_db("Q3_sqlite_1772582.db")
 
 #Twitter Authentication
-consumer_key="JAMXPDH5pm7mHQ8GJlqjswo7c"
-consumer_secret="0S4yNIdBn8bsF6KcP68vAUYMByLzgbymuTUGPSQfbHNBe63lDK"
-access_token="295650933-yZkM6xzU29zX6btE77ICaFNNMOaPbSyd0s3X6UMf"
-access_token_secret="GYcBRrtL0jqm87Ihe26gnn5bYFywTDoayU5tm6XH7RexV"
+consumer_key="###"
+consumer_secret="###"
+access_token="###"
+access_token_secret="###"
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
