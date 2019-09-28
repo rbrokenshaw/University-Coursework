@@ -1,0 +1,170 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+	<div class="col-sm-12 col-md-8">
+		<div class="mt-4 ml-4 mr-0">
+			<h1 class="titlefont font-2">Search Result for ISBN: {{ isbn }}</h1>
+			<div class="m-2 p-3 search-wrapper center">
+				<div id="selloutput" class="selloutput">
+				</div>
+				<div id="sellformleft">
+					<form method="POST" action="">
+						{{ form.csrf_token }}
+						<fieldset>
+							<div class="form-group row">
+								<div class="col-sm-2 form-right">
+									{{ form.isbn.label(class="form-control-label") }} 
+								</div>
+								<div class="col-sm-10">
+									{{ form.isbn(class="form-control", id="form-isbn") }}
+									{% for error in form.isbn.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+									{% endfor %}
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-sm-2 form-right">
+									{{ form.title.label(class="form-control-label") }}
+								</div>
+								<div class="col-sm-10">
+									{{ form.title(class="form-control", id="form-title") }}
+									{% for error in form.title.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+									{% endfor %}
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-sm-2 form-right">
+									{{ form.authors.label(class="form-control-label") }}
+								</div>
+								<div class="col-sm-10">
+									{{ form.authors(class="form-control", id="form-authors") }}
+									{% for error in form.authors.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+									{% endfor %}
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-sm-2 form-right">
+									{{ form.cover.label(class="form-control-label") }}
+								</div>
+								<div class="col-sm-10">
+									{{ form.cover(readonly="true", class="form-control", id="form-cover") }}
+									{% for error in form.cover.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+									{% endfor %}
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-sm-2 form-right">
+									{{ form.category.label(class="form-control-label") }}
+								</div>
+								<div class="col-sm-10">
+									{{ form.category(class="form-control", id="form-category") }}
+									{% for error in form.category.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+									{% endfor %}
+								</div>
+							</div>
+
+							<div class="form-group row">	
+								<div class="col-sm-2 form-right">
+									{{ form.publishers.label(class="form-control-label") }}
+								</div>
+								<div class="col-sm-10">
+									{{ form.publishers(class="form-control", id="form-publishers") }}
+									{% for error in form.publishers.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+									{% endfor %}
+								</div>
+							</div>
+								<div class="form-group">
+									{{ form.condition.label(class="form-control-label") }} 
+
+									<a tabindex="0" class="btn btn-sm btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Book Condition" data-html="true" data-content="<strong>As New</strong> - The book is new and in perfect condition. <br/> <strong>Fine</strong> - 'As New' but allowing for the normal effects of time on an unused book that has been protected. A fine book shows no damage. <br/> <strong>Very Good</strong> - Worn but untorn. Any defects must be noted. <br/> <strong>Good</strong>  - An average used worn book that is complete. Any defects must be noted. <br/> <strong>Fair</strong> - Shows wear and tear but all the text pages and illustrations or maps are present. It may lack endpapers, half-title, and even the title page. All defects must be noted.<br/> <strong>Poor</strong> - A book that has the complete text but is so damaged that it is only of interest to a buyer who seeks a reading copy. The damage should not render the text illegible. 	All defects must be noted.">?</a>
+
+									{{ form.condition(class="form-control", id="form-condition") }}
+									{% for error in form.condition.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+									{% endfor %}
+								</div>
+
+
+							<div class="form-group">
+								{{ form.defects.label(class="form-control-label") }} {{ form.defects(class="form-control", id="form-defects") }}
+								{% for error in form.publishers.errors %}
+									<span style="color: red;">[{{ error }}]</span>
+								{% endfor %}
+							</div>
+
+							<div class="form-group">
+								{{ form.price.label(class="form-control-label") }}(£) {{ form.price(class="form-control", id="form-price") }}
+								{% for error in form.price.errors %}
+									<span style="color: red;">[{{ error }}]</span>
+								{% endfor %}
+							</div>
+
+							<div class="form-group">
+								{{ form.shipping.label(class="form-control-label") }}(£) {{ form.shipping(class="form-control", id="form-shipping") }}
+								{% for error in form.shipping.errors %}
+									<span style="color: red;">[{{ error }}]</span>
+								{% endfor %}
+							</div>
+
+							<div class="form-group">
+								{{ form.submit(class="btn btn-success") }}
+							</div>
+						</fieldset>
+					</form>
+					<a href="{{ url_for('home') }}"><button class="btn btn-danger">Cancel</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-1 col-md-4">
+		<div class="mr-4 mt-4 ml-0">
+			<h1 class="titlefont font-2">Instructions</h1>
+			<p>Complete as much information as you can about your book. If we found a match for your book, most of the work should have been done for you!</p>
+
+			<h2 class="titlefont display-6">Cover Image</h2>
+			<p>We will automatically provide an image if found, otherwise a default image will be displayed.</p>
+
+			<h2 class="titlefont display-6">Category</h2>
+			<p>Please choose the most relevant category for your book</p>
+
+			<h2 class="titlefont display-6">Condition</h2>
+			<p>Please choose the condition that best describes your book. More information can be found by clicking the '?' symbol.</p>
+
+			<h2 class="titlefont display-6">Defects</h2>
+			<p>Please describe any defects, such as worn pages, rips or tears, handwritten notes or other damage.</p>
+
+			<h2 class="titlefont display-6">Price</h2>
+			<p>How much would you like to charge for your book?</p>
+
+			<h2 class="titlefont display-6">Shipping</h2>
+			<p>How much would you like to charge for shipping your book? For free shipping, just enter 0</p>
+
+			<p>Once you click 'Sell This Book' your book will be put up for sale for thousands of other students to find!</p>
+
+		</div>
+	</div>
+</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<script src="{{ url_for('static', filename='js/js.js') }}"></script>
+	<script>
+		var search_term = '{{ isbn }}';
+		makeAPIQuery(search_term);
+
+		$(document).ready(function(){
+		  $('[data-toggle="popover"]').popover(); 
+		});
+
+		$('.popover-dismiss').popover({
+  			trigger: 'focus'
+		})
+	</script>
+{% endblock %}

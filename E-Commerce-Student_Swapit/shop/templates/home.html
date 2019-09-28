@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="bg-light opacity p-3 jumbotron-wrapper">
+            <h1 class="display-5 center titlefont">It's never been easier to buy and sell your university textbooks!</h1>
+            <p class="display-6">To start selling, enter an ISBN:</p>
+            <form method="POST" action="">
+                {{ form.csrf_token }}
+                <fieldset class="form-group">
+                    <div class="form-group">
+                        {{ form.isbn(class="form-control form-control-lg") }}
+                        {% for error in form.isbn.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group text-right">
+                        {{ form.submitsell(class="btn btn-outline-dark btn-green titlefont")}}
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="row fullwidth-wrapper">
+            <div id="howitworks" class="col-sm-12">
+                <h1 class="titlefont">How It Works</h1>
+            </div>
+            <div class="col-sm-6 col-md-3 how-bg">
+                <h2 class="how-title center titlefont">Search</h2>
+                <img src="{{ url_for('static', filename='img/layout/icons/barcode.png') }}" class="how-icon"><br/>
+                <p><a href="{{ url_for('register') }}">Sign Up</a> today, and search for your book's ISBN above to get started.</p>
+            </div>
+            <div class="col-sm-6 col-md-3 how-bg">
+                <h2 class="how-title center titlefont">Sell</h2>
+                <img src="{{ url_for('static', filename='img/layout/icons/money.png') }}" class="how-icon"><br/>
+                <p>Thousands of other students will be able to search for and buy your listed books!</p>
+            </div>
+            <div class="col-sm-6 col-md-3 how-bg">
+                <h2 class="how-title center titlefont">Ship</h2>
+                <img src="{{ url_for('static', filename='img/layout/icons/box.png') }}" class="how-icon"><br/>
+                <p>Receive payment quickly and securely for your books then ship them to their new owners!</p>
+            </div>
+            <div class="col-sm-6 col-md-3 how-bg">
+                <h2 class="how-title center titlefont">Buy</h2>
+                <img src="{{ url_for('static', filename='img/layout/icons/notebook.png') }}" class="how-icon"><br/>
+                <p>Need books? Browse the books currently available for sale and find a bargain!</p>
+            </div>
+            <p><a href="{{ url_for('about', _anchor='fees') }}">Click here to read about our fees.</a></p>
+        </div>
+        <div class="row fullwidth-wrapper">
+            <div id="searchbooks" class="col-sm-12 col-md-7 latest-books-title">
+                <h1 class="titlefont">Latest Books for Sale</h1>
+            </div>
+            <div class="row col-sm-12 col-md-5">
+                <div class="col-sm-11 search-all-books">
+                    <form method="POST" action="">
+                        {{ form.csrf_token }}
+                        <fieldset class="form-group">
+                            {{ allbookssearchform.search_term(class="form-control", placeholder="Search all books for sale") }}
+                            {% for error in allbookssearchform.search_term.errors %}
+                                <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}
+                </div>
+                <div class="col-sm-1 search-all-books">
+                            {{ allbookssearchform.submit(class="btn btn-outline-dark btn-green titlefont") }}
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="row latest-books-wrapper">
+            	{% for book, user in data %}
+                    <div class="col-sm-12 col-md-4 single-book-wrapper center">
+                        <a href="{{ url_for('book', book_id=book.id) }}"><img src="{{ book.cover }}" class="latest-books-img center"></a><br/>
+                		<p class="book-title"><a href="{{ url_for('book', book_id=book.id) }}">{{ book.title }}</a></p>
+                    	<p>Author(s): {{ book.author }}</p>
+                        <p>Condition: {{ book.condition }}</p>
+                        <p class="book-price">£{{ book.price }}</p>
+                        <p>Seller: <a href="{{ url_for('user', username=user.username) }}">{{ user.username }}</a></p>
+                        <p><a href="{{ url_for('book', book_id=book.id) }}"><button class="btn btn-success">View Book</button></a></p>
+                    </div>
+            	{% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

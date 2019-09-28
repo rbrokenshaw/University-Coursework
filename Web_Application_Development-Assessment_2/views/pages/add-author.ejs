@@ -1,0 +1,21 @@
+<!-- INCLUDE THE HEADER -->
+<% include ../partials/header %>
+
+    <div>
+        <h1>Add an Author to a Book</h1>
+        <form>
+            <label for="book_id">Book ID:</label>
+            <input type="text" id="book_id" class="input-small"/>
+            <label for="author_name">Author Name:</label>
+            <input type="text" id="author_name" class="input-small"/><br/>
+            <input type="button" id="author_submit" value="Submit" />
+        </form>
+    </div>
+
+    <div id="loan_output">
+    </div>
+
+    <script src="js/add-author-js.js"></script>
+
+<!-- INCLUDE THE FOOTER -->
+<% include ../partials/footer %>

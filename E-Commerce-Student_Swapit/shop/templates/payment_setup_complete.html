@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="fullwidth-wrapper">
+
+	<h1 class="titlefont">Payment Set Up Complete!</h1>
+
+	<img src="{{ url_for('static', filename='img/layout/icons/checked.png') }}" class="payment-icon">
+
+	<p>Thank you, we have now saved your payment details, and you will be able to recieve funds when your books sell.</p>
+
+	{% if current_user.is_authenticated %}
+
+		<p><a href="{{ url_for('user', username=current_user.username) }}">Click here</a> to return to your user profile.</p>
+
+	{% endif %}
+
+	<p>Alternatively, <a href="{{ url_for('home') }}">Click here</a> to return to the homepage.</p>
+
+</div>
+
+{% endblock %}

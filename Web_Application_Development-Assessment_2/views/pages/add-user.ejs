@@ -1,0 +1,27 @@
+<!-- INCLUDE THE HEADER -->
+<% include ../partials/header %>
+
+	<h1>Add a User</h1>
+    <div id="input">
+        <form id="myForm">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" class="input-small">
+            <label for="barcode">Barcode:</label>
+            <p class="note">Note: barcode must consist of 6 numbers only.</p>
+            <input type="text" name="barcode" id="barcode" class="input-small">
+            <label for="memberType">Member Type:</label>
+            <select id="memberType" name="memberType">
+                <option value="Staff">Staff</option>
+                <option value="Student">Student</option>
+            </select>
+            <input type="button" value="Submit" id="user_submit">
+        </form>
+    </div>
+
+    <div id="output">
+    </div>
+    
+    <script src="js/add-user-js.js"></script>
+
+<!-- INCLUDE THE FOOTER -->
+<% include ../partials/footer %>

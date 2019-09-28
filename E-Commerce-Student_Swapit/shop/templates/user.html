@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row fullwidth-wrapper">
+	<div class="col-sm-12">
+		<h1 class="titlefont">{{ user.username }}</h1>
+		<p>University: {{ user.university }}</p>
+		{% if logged_in_id == user.id %}
+			<p><img src="{{ url_for('static', filename='img/layout/icons/cash.png') }}" class="icon"><a href="{{ url_for('payment') }}">Set up/ update payment details</a></p>
+		{% endif %}
+	</div>
+
+	<div class="col-sm-12 col-md-6">
+		<h2 class="titlefont">Books for Sale</h2>
+		{% for book in booksforsale %}
+			<a href="{{ url_for('book', book_id=book.id) }}">{{ book.title }}</a><br/>
+			<img src="{{ book.cover }}" height="100em">
+			<p>Price: {{ book.price }}</p>
+		{% else %}
+			<p>No books for sale currently</p>
+		{% endfor %}
+	</div>
+	<div class="col-sm-12 col-md-6">
+		<h2 class="titlefont">Books Sold</h2>
+		{% for book in bookssold %}
+			{{ book.title }}<br/>
+			<img src="{{ book.cover }}" height="100em">
+			<p>Price: {{ book.price }}</p>
+			{% if book.posted == True %}
+				<p>Shipped?: Yes</p>
+			{% else %}
+				<p>Shipped?: No</p>
+			{% endif %}
+			{% if logged_in_id == user.id %}
+				{% if book.posted == False %}
+					<p><a href="{{ url_for('shipped', book_id=book.id) }}"><button class="btn btn-success">Mark as Shipped</button></a></p>
+				{% endif %}
+			{% endif %}
+		{% else %}
+			<p>No books sold yet.</p>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}

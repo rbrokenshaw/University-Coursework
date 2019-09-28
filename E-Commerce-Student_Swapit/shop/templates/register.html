@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="form-wrapper col-sm-12 center">
+		<h1 class="page-title">Join Today!</h1>
+		<img src="{{ url_for('static', filename='img/layout/icons/login.png') }}" class="icon-large">
+		<p>Register now to start buying and selling your textbooks! Registration is quick and easy!</p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    {% for message in messages %}
+	      <p>{{ message }}</p>
+	    {% endfor %}
+	  {% endif %}
+	{% endwith %}
+	<div class="form-wrapper col-sm-12 col-md-12">
+		<form method="POST" action="" class="center">
+			{{ form.csrf_token }}
+			<fieldset class="form-group center">
+				<div class="form-group login-form">
+					{{ form.username.label(class="form-control-label") }} {{ form.username(class="form-control") }}
+					{% for error in form.username.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</div>
+				<div class="form-group login-form">
+					{{ form.email.label(class="form-control-label") }} {{ form.email(class="form-control") }}
+					{% for error in form.email.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</div>
+				<div class="form-group login-form">
+					{{ form.password.label(class="form-control-label") }} {{ form.password(class="form-control") }}
+					{% for error in form.password.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</div>
+				<div class="form-group login-form">
+					{{ form.confirm_password.label(class="form-control-label") }} {{ form.confirm_password(class="form-control") }}
+					{% for error in form.confirm_password.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</div>
+				<div class="form-group login-form">
+					{{ form.university.label(class="form-control-label") }} {{ form.university(class="form-control") }}
+					{% for error in form.confirm_password.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</div>
+				<div class="form-group login-form">
+					{{ form.address_house.label(class="form-control-label") }} {{ form.address_house(class="form-control") }}
+					{% for error in form.confirm_password.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</div>
+				<div class="form-group login-form">
+					{{ form.address_street.label(class="form-control-label") }} {{ form.address_street(class="form-control") }}
+					{% for error in form.confirm_password.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</div>
+				<div class="form-group login-form">
+					{{ form.address_towncity.label(class="form-control-label") }} {{ form.address_towncity(class="form-control") }}
+					{% for error in form.confirm_password.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</div>
+				<div class="form-group login-form">
+					{{ form.address_postcode.label(class="form-control-label") }} {{ form.address_postcode(class="form-control") }}
+					{% for error in form.confirm_password.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+					{% endfor %}
+				</div>
+				<div class="form-group">
+					{{ form.submit }}
+				</div>
+			</fieldset>
+		</form>
+	</div>
+{% endblock %}

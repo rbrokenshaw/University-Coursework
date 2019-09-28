@@ -1,0 +1,318 @@
+body {
+	font-family: 'Playfair Display', serif;
+	font-size: 1em;
+	color: #132639;
+	padding-bottom: 0;
+}
+
+body a {
+	color: #264d73;
+}
+
+body a:hover {
+	text-decoration: none;
+	color: #66cc99;
+}
+
+/* Layout */
+
+.footer {
+	background-color: #e0ebeb;
+	padding: 1em 1em 1em 1em;
+}
+
+.footer ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.copyright {
+	text-align: center;
+	padding-top: 0.5em;
+	background-color: #5cb85c;
+	box-shadow: 0 50vh 0 50vh #5cb85c;
+}
+
+.icon {
+	height: 1.5em;
+	margin-right: 0.3em;
+	margin-bottom: 0.2em;
+}
+
+.icon-large {
+	height: 6em;
+	margin-bottom: 2em;
+}
+
+.jumbotron {
+	background-image: url("img/layout/bookcase-books-bookshelves-159711.jpg");
+	background-size: cover;
+}
+
+.jumbotron-wrapper {
+	margin: 0em 3em 0em 3em;
+}
+
+.center {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.opacity {
+	opacity: 0.9;
+}
+
+.popover{
+    max-width: 50%; /* Max Width of the popover (depending on the container!) */
+}
+
+.selloutput {
+	padding: 0em 3em 3em 3em;
+}
+
+.search-all-books {
+	padding-top: 0.5em;
+}
+
+.login-form {
+	max-width: 50%;
+	margin: 1em auto;
+}
+
+.subnav {
+	background-color: #fff;
+	border-bottom: 1px solid #000;
+}
+
+.subnav ul {
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+  	list-style-type: none;
+}
+
+.subnav li {
+	font-family: 'Raleway', sans-serif;
+	padding: 0.1em 1em 0.1em 1em;
+	display: inline-block;
+}
+
+.subnav a {
+	color: #334d4d;
+}
+
+.subnav a:hover {
+	text-decoration: none;
+	color: #ff5050;
+}
+
+.table {
+	display: table;
+	margin: 0 auto;
+}
+
+.checkout {
+	background-color: #e0ebeb;
+	padding: 0.5em 2em 2em 2em;
+}
+
+.how-bg {
+	background-color: #e0ebeb;
+	border: 10px solid #fff;
+}
+
+/* Fonts */
+
+.logofont {
+	font-family: 'Raleway', sans-serif;
+	font-size: 1.6em;
+	color: #5cb85c;
+}
+
+.navbar a:hover {
+	text-decoration: none;
+	color: #000;
+}
+
+.titlefont {
+	font-family: 'Raleway', sans-serif;
+}
+
+.page-title {
+	padding-bottom: 0.6em;
+}
+
+.page-subtitle {
+	padding-bottom: 0.6em;
+}
+
+.display-5 {
+	font-size: 2.8em;
+	padding-bottom: 0.8em;
+}
+
+.display-6 {
+	font-size: 1.4em;
+}
+
+.search_result_title {
+	font-size: 1.5em;
+}
+
+.book-title {
+	font-family: 'Raleway', sans-serif;
+	font-size: 1.1em;
+	line-height: 1em;
+}
+
+.font-2 {
+	font-size: 2em;
+}
+
+.book-price {
+	font-size: 1.5em;
+	color: red;
+}
+
+.checkout-title {
+
+}
+
+.checkout-subtitle {
+	font-size: 1.5em;
+}
+
+.checkout-shipping {
+	font-size: 1.5em;
+	color: red;
+	padding: 1em;
+}
+
+.how-title {
+	font-size: 1.5em;
+	padding: 1em;
+}
+
+.latest-books-title {
+	padding-bottom: 2em;
+}
+
+.individual-book-title {
+	font-size: 2em;
+}
+
+.individual-book-seller {
+	font-size: 1.5em;
+}
+
+.individual-book-price {
+	font-size: 1.5em;
+	color: red;
+}
+
+.individual-book-shipping {
+	color: red;
+}
+
+.individual-book-add {
+	font-size: 1.5em;
+}
+
+.cart-price {
+	font-size: 1.5em;
+	color: red;
+}
+
+.mission-statement {
+	font-style: italic;
+	text-align: center;
+	padding: 1em;
+}
+
+.abouttitle {
+	padding-bottom: 1em;
+}
+
+.footer-title {
+	font-size: 1em;
+}
+
+/* Buttons */
+
+.btn-blue {
+	background-color: #87acd0;
+}
+
+.btn-green {
+	background-color: #d7ffb8;
+}
+
+.btn-book-condition {
+	font-size: 0.7em;
+	padding: 0.1em 0.5em 0.1em 0.5em;
+}
+
+/* Wrappers */
+
+.form-wrapper {
+	margin: 1em;
+}
+
+.search-wrapper {
+	padding: 2em;
+}
+
+.fullwidth-wrapper {
+	margin: 2em;
+}
+
+.cart-fullwidth-wrapper {
+	margin: 1em 0em 1em 1em;
+}
+
+.latest-books-wrapper {
+}
+
+.single-book-wrapper {
+	line-height: 0.9em;
+}
+
+/* Images */
+
+.latest-books-img {
+	height: 15em;
+	padding: 1em;
+}
+
+.checkout-icon {
+	height: 4em;
+}
+
+.how-icon {
+	height: 8em;
+	display: block;
+	margin: auto;
+	padding: 0.5em 1em 1em 1em;
+}
+
+.welcome-icon {
+	height: 10em;
+	padding: 1em;
+}
+
+.payment-icon {
+	height: 10em;
+	padding: 1em;
+}
+
+.footer-icon {
+	height: 2em;
+}
+
+/* Forms */
+
+.form-right {
+	text-align: right;
+}

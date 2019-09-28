@@ -1,0 +1,50 @@
+<!-- INCLUDE THE HEADER -->
+<% include ../partials/header %>
+
+	<h1 class="centre">Welcome to the Pontybridge University library management system.</h1>
+
+	<h2 class="centre">Current Stats:</h2>
+
+	<div id="stats-wrapper">
+
+		<div class="stat">
+			<div class="stats-inner-wrapper">
+				<div>
+					<img class="icon-image" src="images/icon-book.png" alt="Books">
+				</div>
+				<div id="book_output">
+				</div>
+			</div>
+			<h2>Books</h2>
+		</div>
+
+		<div class="stat">
+			<div class="stats-inner-wrapper">
+				<div>
+					<img class="icon-image" src="images/icon-user.png" alt="Users">
+				</div>
+				<div id="user_output">
+				</div>
+			</div>
+			<h2>Users</h2>
+		</div>
+
+		<div class="stat">
+			<div class="stats-inner-wrapper">
+				<div>
+					<img class="icon-image" src="images/icon-loan.png" alt="Loans">
+				</div>
+			<div id="loan_output">
+			</div>
+		</div>
+			<h2>Loans</h2>
+		</div>
+
+	</div>
+
+	<script src="js/stats-js.js"></script>
+
+<!-- INCLUDE THE FOOTER -->
+<% include ../partials/footer %>
+
+		

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="row fullwidth-wrapper">
+	<div class="col-sm-6">
+		<h1>Search results for "{{ search_term }}"</h1>
+	</div>
+	<div class="row col-sm-6">
+		<div class="col-sm-11 search-all-books">
+			<form method="POST" action="">
+	            {{ allbookssearchform.csrf_token }}
+	            <fieldset class="form-group">
+	                {{ allbookssearchform.search_term(class="form-control", placeholder="Search all books for sale") }}
+	                {% for error in allbookssearchform.search_term.errors %}
+	                    <span style="color: red;">[{{ error }}]</span>
+	                {% endfor %}
+	    </div>
+        <div class="col-sm-1 search-all-books">
+        	{{ allbookssearchform.submit(class="btn btn-outline-dark btn-green titlefont") }}
+        </div>
+	            </fieldset>
+	        </form>
+	    </div>
+	</div>
+	<div class="row col-sm-12">
+	{% if results %}
+	{% for result in results %}
+		<div class="col-sm-12 col-md-3">
+		<img src="{{ result.cover }}" class="latest-books-img center"><br/>
+		<p class="book-title"><a href="{{ url_for('book', book_id=result.id) }}">{{ result.title }}</a></p>
+    	<p>Author(s): {{ result.author }}</p>
+        <p>Condition: {{ result.condition }}</p>
+        <p class="book-price">£{{ result.price }}</p>
+        <p><a href="{{ url_for('book', book_id=result.id) }}"><button class="btn btn-success">See book >></button></a></p>
+    </div>
+	{% endfor %}
+	{% else %}
+	<div class="col-sm-12">
+		<p>Sorry, no matches found for that search term.</p>
+	</div>
+	{% endif %}
+	    </div>
+	</div>
+{% endblock %}

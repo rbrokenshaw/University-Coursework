@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row cart-fullwidth-wrapper">
+	{% if total_quantity %}
+		<div class="row col-sm-12 col-md-8">
+			<div class="col-sm-9">
+				<h1 class="page-title titlefont">Shopping Cart</h1>
+			</div>
+			<div class="col-sm-3">
+				<a href="{{ url_for('home') }}">Continue Shopping >></a>
+			</div>
+		{% for key, value in display_cart.items() %}
+
+			<div class="col-sm-12 col-md-6">
+				<img src="{{ value['cover'] }}" class="latest-books-img">
+				<p>{{ value["title"] }}</p>
+				<p class="cart-price">£{{ value["price"] }}</p>
+				<p>Shipping Cost: £{{ value["shipping"] }}</p>
+				<p>Seller: {{ value["seller"]}}</p>
+				<p>
+					<form action="{{ url_for('delete_book', book_id=key|int) }}" method="POST">
+						<input class="" type="submit" value="Remove From Cart">
+					</form>
+				</p>
+			</div>
+		{% endfor %}
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<div class="col-sm-12 checkout rounded">
+				<h1 class="titlefont">Checkout</h1>
+				<p class="checkout-shipping center">Total inc. Shipping: <br/> £{{ overall_total }}
+				<div class="row">
+					<div class="col-sm-8">
+						<h2 class="checkout-subtitle">Pay by Card</h2>
+					</div>
+					<div class="col-sm-4">	
+						<img src="{{ url_for('static', filename='img/layout/icons/debit-card.png') }}" class="checkout-icon">
+					</div>
+				</div>
+				<form method="POST" action="">
+						{{ form.csrf_token }}
+						<fieldset>
+							<div class="form-group row">
+									{{ form.card_name.label(class="form-control-label") }} 
+									{{ form.card_name(class="form-control", id="form-isbn") }}
+									{% for error in form.card_name.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+									{% endfor %}
+							</div>
+							<div class="form-group row">
+									{{ form.card_number.label(class="form-control-label") }}
+									{{ form.card_number(class="form-control") }}
+									{% for error in form.card_number.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+									{% endfor %}
+							</div>
+							<div class="form-group row">
+									{{ form.card_expiry.label(class="form-control-label") }}
+									{{ form.card_expiry(class="form-control", placeholder="MM/YY") }}
+									{% for error in form.card_expiry.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+									{% endfor %}
+							</div>
+							<div class="form-group row">
+									{{ form.card_cvv.label(class="form-control-label") }}
+									{{ form.card_cvv(class="form-control") }}
+									{% for error in form.card_cvv.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+									{% endfor %}
+							</div>
+							<div class="form-group text-right">
+								{{ form.submit(class="btn btn-success") }}
+							</div>
+						</fieldset>
+					</form>
+			</div>
+		</div>
+
+	{% else %}
+		<p>You have no items in your cart</p>
+	{% endif %}
+</div>
+{% endblock %}

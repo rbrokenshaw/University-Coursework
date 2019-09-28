@@ -1,0 +1,117 @@
+<!-- icons by https://www.flaticon.com/authors/darius-dan, https://www.flaticon.com/authors/smashicons, https://www.freepik.com/, https://www.flaticon.com/authors/monkik, https://www.flaticon.com/authors/maxim-basinski, https://www.flaticon.com/authors/dinosoftlabs -->
+
+<!doctype html>
+<html lang="en">
+    <head>
+  		{% if title %}
+			<title>Student Swap.it - {{ title }}</title>
+		{% else %}
+			<title>Student Swap.it</title>
+		{% endif %}
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- Google Fonts CSS -->
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Raleway:800" rel="stylesheet">
+
+    	<!-- Own Stylesheet -->
+    	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div class="container-fullwidth">
+            <nav class="navbar navbar-expand-lg bg-light navbar-light">
+                <a class="logofont" href="{{ url_for('home') }}">Student Swap.it</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-nav ml-auto collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link titlefont" href="{{ url_for('home', _anchor='howitworks') }}">How it Works</a></li>
+                        <li class="nav-item"><a class="nav-link titlefont" href="{{ url_for('home', _anchor='searchbooks') }}">Search Books</a></li>
+                        <li class="nav-item"><a class="nav-link titlefont" href="{{ url_for('about') }}">About Us</a></li>
+                    </ul>
+                {% if current_user.is_authenticated %}
+                    <ul class="navbar-nav ml-auto nav-right">
+                        <li class="nav-item nav-right">
+                            <a class="nav-link" href="{{ url_for('user', username=current_user.username) }}"><img src="{{ url_for('static', filename='img/layout/icons/user-grey.png') }}" class="icon">{{ current_user.username }}</a>
+                        </li>
+                        <li class="nav-item nav-right">
+                            <a class="nav-link" href="{{ url_for('cart_display')}}"><img src="{{ url_for('static', filename='img/layout/icons/shopping-bag-empty-brown.png') }}" class="icon">{{ session["cart"]|length }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('logout') }}"><img src="{{ url_for('static', filename='img/layout/icons/exit.png') }}" class="icon">Logout</a>
+                        </li>
+                    </ul>
+                {% else %}
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link bodyfont" href="{{ url_for('login') }}">Login</a>
+                        </li>
+                        <li class='nav-item'>
+                            <a class="nav-link bodyfont" href="{{ url_for('register') }}">Register</a>
+                        </li>
+                    </ul>
+                {% endif %}
+                </div>
+            </nav>
+        </div>
+        <div class="container-fullwidth row-fluid">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <footer class="footer">
+            <div class="row">
+                <div class="col-sm-12 col-md-3">
+                    <p class="titlefont footer-title">Find us on Social Media!</p>
+
+                    <a href="#"><img src="{{ url_for('static', filename='img/layout/icons/facebook.png') }}" class="footer-icon"></a>
+                    <a href="#"><img src="{{ url_for('static', filename='img/layout/icons/twitter.png') }}" class="footer-icon"></a>
+                    <a href="#"><img src="{{ url_for('static', filename='img/layout/icons/instagram.png') }}" class="footer-icon"></a>
+                    <a href="#"><img src="{{ url_for('static', filename='img/layout/icons/google-plus.png') }}" class="footer-icon"></a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <h1 class="titlefont footer-title">Contact Us</h1>
+                    <p>info@student-swap.it</p>
+
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control form-control-sm" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control form-control-sm" rows="3" placeholder="Write your message here"></textarea>
+                        </div>
+                        <a href="{{ url_for('home') }}"><button type="submit" class="btn btn-primary">Send</button></a>
+                    </form>
+                </div>
+                <div class="col-sm-12 col-md-3">
+                    <h1 class="titlefont footer-title">Useful Links</h1>
+                    <ul class="footer-menu">
+                        <li><a href="{{ url_for('about') }}">About Us</a></li>
+                        <li><a href="{{ url_for('home', _anchor='howitworks') }}">How it Works</a></li>
+                        <li><a href="{{ url_for('home', _anchor='searchbooks') }}">Seach Books</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Statement</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <footer class="copyright">
+                <p class="text-dark">&copy; Student Swap.it 2019. Built for CMT302 by Student No. 1772582</p>
+        </footer>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts from Google Fonts: https://fonts.google.com/ -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro" rel="stylesheet">
+	<link rel="stylesheet" href="/css/style.css">
+    <title>Pontybridge University - Library Management System</title>
+</head>
+<body>
+
+	<div id="wrapper">
+
+		<header id="top-bar">
+			<div>
+				<a class="main-title" href="/index">Pontybridge University</a>
+			</div>
+			<div>
+				<h1 class="main-subtitle"> Library Management System</h1>
+			</div>
+			<div>
+				<button class="menu-button" onclick="toggleMenu()">Menu</button>
+			</div>
+		</header>
+
+		<nav id="mobile-menu">
+			<% include ../partials/nav %>
+		</nav>
+
+		<nav id="menu">
+			<% include ../partials/nav %>
+		</nav>
+
+		<div id="content">

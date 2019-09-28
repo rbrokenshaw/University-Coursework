@@ -1,0 +1,30 @@
+<!-- INCLUDE THE HEADER -->
+<% include ../partials/header %>
+
+    <div id="input">
+    	<h1>Add a Book</h1>
+        <form id="myForm">
+            <label for="book_title">Title:</label>
+            <input type="text" name="book_title" id="book_title" class="input-small">
+            <label for="book_isbn">ISBN:</label>
+            <input type="text" name="book_isbn" id="book_isbn" class="input-small">
+            <label for="book_author">Author:</label>
+            <input type="text" name="book_author" id="book_author" class="input-small">
+            <label for="book_publisher">Publisher:</label>
+            <input type="text" name="book_publisher" id="book_publisher" class="input-small">
+            <br/>
+            <input type="button" value="Submit" id="book_submit">
+        </form>
+    </div>
+
+    <div id="output">
+    </div>
+
+    <div>
+        <p>If you need to add additional authors to a book, please <a href="/add-author">click here</a>.
+    </div>
+    
+    <script src="js/add-book-js.js"></script>
+
+<!-- INCLUDE THE FOOTER -->
+<% include ../partials/footer %>

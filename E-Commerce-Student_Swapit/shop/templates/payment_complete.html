@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="fullwidth-wrapper">
+
+<h1 class="titlefont">Payment Complete!</h1>
+
+<img src="{{ url_for('static', filename='img/layout/icons/checked.png') }}" class="payment-icon">
+
+<p>Thank you, your payment has been processed!</p>
+
+<p>The seller will now post your book and you will be notified by email as soon as it is shipped!</p>
+
+<p><a href="{{ url_for('home') }}">Click here</a> to return to the homepage.</p>
+
+</div>
+
+{% endblock %}

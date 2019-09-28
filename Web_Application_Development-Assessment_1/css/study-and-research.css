@@ -1,0 +1,145 @@
+/* 
+	IDs FIRST, THEN CLASSES, IN ORDER OF APPEARENCE ON THE PAGE. MEDIA QUERIES ORDERED BY SIZE
+*/
+
+#main-content {
+	margin-left: 2em;
+	margin-right: 2em;
+}
+
+#main-content h1 {
+	font-family: 'Quattrocento', serif;
+	font-size: 1.8em;
+	color: #791b99;
+	font-weight: bold;
+	padding: 1em 0em 1em 0em;
+}
+
+#main-content h2 {
+	font-family: 'Quattrocento', serif;
+	font-size: 1.7em;
+	color: #791b99;
+	padding-bottom: 1em;
+}
+
+.intro {
+	font-family: 'Quattrocento Sans', sans-serif;
+	font-size: 1.2em;
+	margin-bottom: 2em;
+}
+
+.section-info p {
+	font-family: 'Quattrocento Sans', sans-serif;
+	font-size: 1.2em;
+	padding-top: 1em;
+}
+
+.right-section-content {
+	text-align: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 2em;
+	padding-top: 1em;
+	padding-bottom: 2em;
+}
+
+.right-section-title {
+	grid-column: 3/5;
+	grid-row: 1;
+}
+
+.right-section-image {
+	grid-column: 1/3;
+	grid-row: 1/5;
+}
+
+.right-section-info {
+	grid-column: 3/5;
+	grid-row: 2/5;
+}
+
+.left-section-content {
+	text-align: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 2em;
+	padding-top:1em;
+	padding-bottom: 2em;
+}
+
+.left-section-title {
+	grid-column: 1/3;
+	grid-row: 1;
+}
+
+.left-section-image {
+	grid-column: 3/5;
+	grid-row: 1/4;
+}
+
+.left-section-info {
+	grid-column: 1/3;
+	grid-row: 2/4;
+}
+
+@media (max-width: 800px) {
+	.right-section-content {
+		grid-template-columns: 1fr;
+		grid-template-rows: 8fr;
+	}
+
+	.right-section-title {
+		grid-row: 1;
+		grid-column: 1;
+	}
+
+	.right-section-image {
+		grid-row: 2;
+		grid-column: 1;
+	}
+
+	.right-section-info {
+		grid-row: 3;
+		grid-column: 1;
+	}
+
+	.left-section-content {
+		grid-template-columns: 1fr;
+		grid-template-rows: 8fr;
+	}
+
+	.left-section-title {
+		grid-row: 1;
+		grid-column: 1;
+	}
+
+	.left-section-image {
+		grid-row: 2;
+		grid-column: 1;
+	}
+
+	.left-section-info {
+		grid-row: 3;
+		grid-column: 1;
+	}
+}
+
+@media (max-width: 1100px) {
+	#main-content h2 {
+		font-family: 'Quattrocento', serif;
+		font-size: 1.5em;
+		color: #791b99;
+		padding-bottom: 1em;
+	}
+
+	.intro {
+		font-family: 'Quattrocento Sans', sans-serif;
+		font-size: 1.1em;
+		margin-bottom: 2em;
+	}
+
+	.section-info p {
+		font-family: 'Quattrocento Sans', sans-serif;
+		font-size: 1em;
+	}
+}

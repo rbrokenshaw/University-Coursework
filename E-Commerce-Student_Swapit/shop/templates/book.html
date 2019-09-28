@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="row fullwidth-wrapper">
+	<div class="col-sm-12">
+		<h1 class="titlefont individual-book-title">{{ book.title }}</h1>
+		<p class="individual-book-seller">Seller: <a href="{{ url_for('user', username=user.username) }}">{{ user.username }}</a></p>
+	</div>
+
+	<div class="col-sm-12 col-md-2">
+		<img src = "{{ book.cover }}">
+	</div>
+
+	<div class="col-sm-12 col-md-10">
+		<p>Author(s): {{ book.author }}</p>
+		<p>Condition <a tabindex="0" class="btn btn-sm btn-danger btn-book-condition" role="button" data-toggle="popover" data-trigger="focus" title="Book Condition" data-html="true" data-content="<strong>As New</strong> - The book is new and in perfect condition. <br/> <strong>Fine</strong> - 'As New' but allowing for the normal effects of time on an unused book that has been protected. A fine book shows no damage. <br/> <strong>Very Good</strong> - Worn but untorn. Any defects must be noted. <br/> <strong>Good</strong>  - An average used worn book that is complete. Any defects must be noted. <br/> <strong>Fair</strong> - Shows wear and tear but all the text pages and illustrations or maps are present. It may lack endpapers, half-title, and even the title page. All defects must be noted.<br/> <strong>Poor</strong> - A book that has the complete text but is so damaged that it is only of interest to a buyer who seeks a reading copy. The damage should not render the text illegible. 	All defects must be noted.">?</a>: {{ book.condition }}</p>
+		{% if book.defects == "" %}
+			<p>Description of Condition: No description</p> 
+		{% else %}
+			<p>Description of Condition: {{ book.defects }}</p> 
+		{% endif %}
+		<p class="individual-book-price">Price: {{ book.price }}</p>
+		<p class="individual-book-shipping">Shipping Charge: {{ book.shipping }}</p>
+		<a class="individual-book-add" href="/add_to_cart/{{book.id}}"><button class="btn btn-success">Add to Cart</button></a>
+	</div>
+</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<script>
+
+		$(document).ready(function(){
+		  $('[data-toggle="popover"]').popover(); 
+		});
+
+		$('.popover-dismiss').popover({
+  			trigger: 'focus'
+		})
+	</script>
+
+{% endblock content %}
