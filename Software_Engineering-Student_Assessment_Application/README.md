@@ -1,26 +1,9 @@
-# Team 2 Software Engineering project v2
+Software Engineering - Portfolio Part B
 
-Instructions for downloading and editing system:
+Assessment Description:
 
-Pull the latest version from Git:
+The brief of this assessment was to develop a working prototype of an application that will allow lecturers to generate assessments for students, and allow students to sit assessments and obtain feedback for their assessment responses.
 
-1. Go to Terminal/ Command Line and navigate to a folder where you want to save the project.
-2. type 'git init'
-3. type 'git clone git@gitlab.cs.cf.ac.uk:c1535557/team-2-software-engineering-project-v2.git'
+This project was developed using Python and TKinter. Lecturers may design and submit a test for students to sit. A student may sit tests, and recieve a score for their test response. Some statistical feedback is generated for lecturers according to test responses.
 
-The project should now be in your folder. Make sure you 'git pull origin master' often to get the latest code. You probably won't be able to push any code you've written if you haven't 'pulled' first.
 
-The project has been set up as a package. The file 'login.py' has been set up as the main page, and all the other 'windows' of the system are in the 'sections' folder.
-
-How to run the program:
-
-1. Open 'login.py' in Sublime Text (or text editor of choice)
-2. Run the file by going to Tools > Build or press Cmd/Ctrl + B
-3. the Login page should pop up, and you can navigate to your section from here
-
-How to Build Your Own Section:
-
-1. Go to the sections folder and open your section file in Sublime Text
-2. The basic skeleton is already done. Don't change the main Frame class, just build your section inside the frame. If you need multiple frames (say for a menu), build each frame as a separate class and call them using buttons. Look in either the student menu or staff menu file to see how this is done.
-
-** DON'T PUSH CODE TO THIS GITLAB UNLESS YOU'RE SURE EVERYTHING WORKS AND YOU HAVEN'T BROKEN ANYTHING!! ;) **
