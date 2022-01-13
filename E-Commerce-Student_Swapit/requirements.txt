@@ -20,7 +20,7 @@ nltk==3.4
 numpy==1.15.4
 oauthlib==2.1.0
 pandas==0.24.2
-Pillow==5.4.1
+Pillow==9.0.0
 pycparser==2.19
 PyMySQL==0.9.3
 pyparsing==2.3.0
